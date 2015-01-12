@@ -2,7 +2,7 @@ test:
   override:
     - bundle exec rake generate
 
-deploy:
+deployment:
   web:
     branch: master
     commands:
