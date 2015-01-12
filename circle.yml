@@ -6,5 +6,4 @@ deployment:
   web:
     branch: master
     commands:
-      - bundle exec rake "setup_github_pages[https://github.com/jacobwgillespie/jacobwgillespie.com]"
-      - bundle exec rake deploy
+      - bash -x deploy.sh
