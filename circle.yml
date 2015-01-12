@@ -1,0 +1,9 @@
+test:
+  override: bundle exec rake generate
+
+deploy:
+  web:
+    branch: master
+    commands:
+      - bundle exec rake "setup_github_pages[https://github.com/jacobwgillespie/jacobwgillespie.com]"
+      - bundle exec rake deploy
