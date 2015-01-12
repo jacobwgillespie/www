@@ -36,6 +36,18 @@ a {
     font-size: 14px;
     color: #bbb;
   }
+
+  .menu {
+    float: right;
+
+    a {
+      font-weight: bold;
+      text-decoration: none;
+      border: 1px solid $border-color;
+      border-radius: 6px 6px 6px 6px;
+      padding: 6px;
+    }
+  }
 }
 
 .article-list {
