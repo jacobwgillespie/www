@@ -1,5 +1,6 @@
 test:
-  override: bundle exec rake generate
+  override:
+    - bundle exec rake generate
 
 deploy:
   web:
