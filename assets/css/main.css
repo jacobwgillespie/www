@@ -80,7 +80,7 @@
     background-image: url("../../images/bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: bottom center;
+    background-position: bottom right;
     background-attachment: fixed;
   }
 
@@ -151,7 +151,7 @@
     }
 
     a:hover {
-      color: #ff7496;
+      color: #4285f4;
     }
 
   strong, b {
@@ -285,7 +285,7 @@
     input[type="tel"]:focus,
     select:focus,
     textarea:focus {
-      border-color: #ff7496;
+      border-color: #4285f4;
     }
 
   .select-wrapper {
@@ -386,13 +386,13 @@
 
     input[type="checkbox"]:checked + label:before,
     input[type="radio"]:checked + label:before {
-      color: #ff7496;
+      color: #4285f4;
       content: '\f00c';
     }
 
     input[type="checkbox"]:focus + label:before,
     input[type="radio"]:focus + label:before {
-      border-color: #ff7496;
+      border-color: #4285f4;
     }
 
   input[type="checkbox"] + label:before {
@@ -528,7 +528,7 @@
           }
 
           ul.icons li a:hover:before {
-            text-shadow: 1.25px 0px 0px #ff7496, -1.25px 0px 0px #ff7496, 0px 1.25px 0px #ff7496, 0px -1.25px 0px #ff7496;
+            text-shadow: 1.25px 0px 0px #4285f4, -1.25px 0px 0px #4285f4, 0px 1.25px 0px #4285f4, 0px -1.25px 0px #4285f4;
           }
 
           ul.icons li a:before {
@@ -544,7 +544,7 @@
           }
 
           ul.icons li a:hover {
-            border-color: #ff7496;
+            border-color: #4285f4;
           }
 
       @media screen and (max-width: 480px) {
@@ -618,8 +618,8 @@
     input[type="button"]:hover,
     button:hover,
     .button:hover {
-      border-color: #ff7496;
-      color: #ff7496 !important;
+      border-color: #4285f4;
+      color: #4285f4 !important;
     }
 
     input[type="submit"].icon,
@@ -705,6 +705,7 @@
     -ms-transition: opacity 1s ease, -ms-transform 1s ease;
     transition: opacity 1s ease, transform 1s ease;
     max-width: 600px;
+    margin-left: 5vw;
   }
 
     #main .avatar {
@@ -738,6 +739,7 @@
         min-width: 0;
         width: 100%;
         padding: 4em 2em 2.5em 2em ;
+        margin-left: 0;
       }
 
         #main .avatar:before {
@@ -795,10 +797,10 @@
     display: -webkit-flex;
     display: -ms-flex;
     display: flex;
-    -moz-align-items: center;
-    -webkit-align-items: center;
-    -ms-align-items: center;
-    align-items: center;
+    -moz-align-items: flex-start;
+    -webkit-align-items: flex-start;
+    -ms-align-items: flex-start;
+    align-items: flex-start;
     -moz-justify-content: space-between;
     -webkit-justify-content: space-between;
     -ms-justify-content: space-between;
