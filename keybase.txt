@@ -1,0 +1,55 @@
+==================================================================
+https://keybase.io/jacobwgillespie
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://jacobwgillespie.com
+  * I am jacobwgillespie (https://keybase.io/jacobwgillespie) on keybase.
+  * I have a public key ASARU4NnSL26dLvOvyPxP-yfdCWWhFB4J9g95q2gLWUO5wo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01017100a134fad5f3117f07ace845e3120c5ae473abbda29974ae3b1ae9ec9a3fdf0a",
+            "host": "keybase.io",
+            "kid": "01201153836748bdba74bbcebf23f13fec9f74259684507827d83de6ada02d650ee70a",
+            "uid": "b2f696d59d2011a7102ef71ddd57b100",
+            "username": "jacobwgillespie"
+        },
+        "service": {
+            "hostname": "jacobwgillespie.com",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.18"
+    },
+    "ctime": 1488861994,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1488861977,
+        "hash": "87364eb6837539d97833475bcfd213b271e60a9b5b92b442ed258e5108ca8c10ef992cd897bb22f47569beeecee3672a4c3b925265280522a381f8ac0a5fea6c",
+        "seqno": 943169
+    },
+    "prev": "d8e5aead8c7cfaa2eccbfd4da05ed0417a1aed58ef78b5f7fcd587e79abcb276",
+    "seqno": 28,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgEVODZ0i9unS7zr8j8T/sn3QlloRQeCfYPeatoC1lDucKp3BheWxvYWTFAwN7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTAxNzEwMGExMzRmYWQ1ZjMxMTdmMDdhY2U4NDVlMzEyMGM1YWU0NzNhYmJkYTI5OTc0YWUzYjFhZTllYzlhM2ZkZjBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwMTE1MzgzNjc0OGJkYmE3NGJiY2ViZjIzZjEzZmVjOWY3NDI1OTY4NDUwNzgyN2Q4M2RlNmFkYTAyZDY1MGVlNzBhIiwidWlkIjoiYjJmNjk2ZDU5ZDIwMTFhNzEwMmVmNzFkZGQ1N2IxMDAiLCJ1c2VybmFtZSI6ImphY29id2dpbGxlc3BpZSJ9LCJzZXJ2aWNlIjp7Imhvc3RuYW1lIjoiamFjb2J3Z2lsbGVzcGllLmNvbSIsInByb3RvY29sIjoiaHR0cHM6In0sInR5cGUiOiJ3ZWJfc2VydmljZV9iaW5kaW5nIiwidmVyc2lvbiI6MX0sImNsaWVudCI6eyJuYW1lIjoia2V5YmFzZS5pbyBnbyBjbGllbnQiLCJ2ZXJzaW9uIjoiMS4wLjE4In0sImN0aW1lIjoxNDg4ODYxOTk0LCJleHBpcmVfaW4iOjUwNDU3NjAwMCwibWVya2xlX3Jvb3QiOnsiY3RpbWUiOjE0ODg4NjE5NzcsImhhc2giOiI4NzM2NGViNjgzNzUzOWQ5NzgzMzQ3NWJjZmQyMTNiMjcxZTYwYTliNWI5MmI0NDJlZDI1OGU1MTA4Y2E4YzEwZWY5OTJjZDg5N2JiMjJmNDc1NjliZWVlY2VlMzY3MmE0YzNiOTI1MjY1MjgwNTIyYTM4MWY4YWMwYTVmZWE2YyIsInNlcW5vIjo5NDMxNjl9LCJwcmV2IjoiZDhlNWFlYWQ4YzdjZmFhMmVjY2JmZDRkYTA1ZWQwNDE3YTFhZWQ1OGVmNzhiNWY3ZmNkNTg3ZTc5YWJjYjI3NiIsInNlcW5vIjoyOCwidGFnIjoic2lnbmF0dXJlIn2jc2lnxEA1Jr3Fna/q8XohpiDsERB23uUYQVbhEALXxHs41x0L7MBO9sPPVjtauEt0vH4dYGW+XB3yviik+CjXAHx2jiUDqHNpZ190eXBlIKRoYXNogqR0eXBlCKV2YWx1ZcQge4hmo1hhFC4ahxdAPv8lGyOu67+j5cOIL992jeMZQUyjdGFnzQICp3ZlcnNpb24B
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/jacobwgillespie
+
+==================================================================
+
