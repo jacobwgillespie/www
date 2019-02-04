@@ -43,7 +43,6 @@
     "normalize-scss": "^7.0.1",
     "prismjs": "^1.15.0",
     "react": "^16.7.0",
-    "react-disqus-comments": "^1.4.0",
     "react-dom": "^16.7.0",
     "react-helmet": "^5.2.0",
     "typeface-source-code-pro": "^0.0.71"

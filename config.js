@@ -3,7 +3,6 @@ module.exports = {
   title: 'Jacob Gillespie',
   subtitle: 'Software Engineer at Thorn',
   copyright: `© ${new Date().getFullYear()} All rights reserved.`,
-  disqusShortname: '',
   postsPerPage: 10,
   googleAnalyticsId: 'UA-73379983-2',
   menu: [
