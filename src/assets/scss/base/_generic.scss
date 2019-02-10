@@ -167,3 +167,20 @@ figcaption {
     float: left;
   }
 }
+
+@media print {
+  body {
+    background-color: #fff;
+    color: $color-background;
+    line-height: $typographic-base-line-height;
+    font-size: $typographic-base-font-size;
+  }
+
+  hr {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: darken($color-base, 50%);
+    background-image: none;
+    height: 1px;
+  }
+}
