@@ -1,0 +1,13 @@
+{% extends "index.html" %}
+
+{% block title %} {{section.title}} {% endblock title %}
+
+{% block content -%}
+<article itemscope itemtype="http://schema.org/BlogPosting">
+  <h1 itemprop="headline">{{ section.title }}</h1>
+
+  <div itemprop="articleBody">
+  {{ section.content | safe }}
+  </div>
+</article>
+{%- endblock content -%}
