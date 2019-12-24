@@ -7,7 +7,7 @@ tags = ["JavaScript", "GraphQL", "React"]
 description = "Exploring the transition from REST APIs to GraphQL at Playlist..."
 +++
 
-![](/images/from-rest-to-graphql-1.png)
+![](/images/from-rest-to-graphql-1.jpg)
 
 **Disclaimer:** GraphQL is still new and best practices are still emerging. This post describes some of my journey with implementing a GraphQL backend service, so it is a snapshot of what I've learned so far, presented in the hopes that it will be useful to others. Also, some of the specific real-world implementation details internal to Playlist have been paraphrased / simplified / anonymized for obvious reasons.
 
@@ -368,33 +368,33 @@ We assume that authentication has taken place outside of GraphQL and the authent
 First, we have to define a root query object, which is the entry point for the query. The root query object should have a field called `playlist`, since that's what we're providing in the query above:
 
 ```javascript
-import { GraphQLObjectType, GraphQLNonNull, GraphQLString } from "graphql";
+import {GraphQLObjectType, GraphQLNonNull, GraphQLString} from 'graphql'
 
-import playlistType from "./playlistType";
+import playlistType from './playlistType'
 
 export default new GraphQLObjectType({
-  name: "Query",
-  description: "The root query object",
+  name: 'Query',
+  description: 'The root query object',
   fields: () => ({
     playlist: {
       type: playlistType,
       args: {
         id: {
-          type: new GraphQLNonNull(GraphQLString)
-        }
+          type: new GraphQLNonNull(GraphQLString),
+        },
       },
       resolve: (
         _,
-        { id },
+        {id},
         {
           rootValue: {
-            ctx: { backend }
-          }
-        }
-      ) => backend.getModel("Playlist").load(id)
-    }
-  })
-});
+            ctx: {backend},
+          },
+        },
+      ) => backend.getModel('Playlist').load(id),
+    },
+  }),
+})
 ```
 
 Note that we're using ES6 syntax here. We use babel with stage set to 0 to take advantage of all the latest and greatest ES7 stuff.
@@ -408,27 +408,27 @@ It's that simple! We load the playlist from the database, return a JS object, an
 Next, let's define the playlist schema type:
 
 ```javascript
-import { GraphQLString, GraphQLArray, GraphQLObjectType } from "graphql";
+import {GraphQLString, GraphQLArray, GraphQLObjectType} from 'graphql'
 
-import trackType from "./trackType";
+import trackType from './trackType'
 
 export default new GraphQLObjectType({
-  name: "Playlist",
-  description: "A Playlist",
+  name: 'Playlist',
+  description: 'A Playlist',
   fields: () => ({
     id: {
       type: GraphQLString,
-      resolve: it => it.uuid
+      resolve: it => it.uuid,
     },
 
-    name: { type: GraphQLString },
+    name: {type: GraphQLString},
 
     tracks: {
       type: new GraphQLArray(trackType),
-      resolve: it => it.tracks()
-    }
-  })
-});
+      resolve: it => it.tracks(),
+    },
+  }),
+})
 ```
 
 So, here we define a new object type for Playlist. Since our root query resolver returned the playlist model instance, the first argument to our resolve functions at this level (named `it`) is that instance. So, for the `id` field, we are resolving by calling `it.uuid` thus exposing the `uuid` model field under the name `id`. Remember that your GraphQL schema does not need to mirror your database schema.
@@ -442,20 +442,20 @@ For `tracks`, we call `it.tracks()` on the model to load tracks from the databas
 Finally, let's define the GraphQL object type for a track:
 
 ```javascript
-import { GraphQLString, GraphQLBoolean, GraphQLObjectType } from "graphql";
+import {GraphQLString, GraphQLBoolean, GraphQLObjectType} from 'graphql'
 
 // a comment
 
 export default new GraphQLObjectType({
-  name: "Track",
-  description: "A Track",
+  name: 'Track',
+  description: 'A Track',
   fields: () => ({
     id: {
       type: GraphQLString,
-      resolve: it => it.uuid
+      resolve: it => it.uuid,
     },
 
-    title: { type: GraphQLString },
+    title: {type: GraphQLString},
 
     viewerHasLiked: {
       type: GraphQLBoolean,
@@ -464,13 +464,13 @@ export default new GraphQLObjectType({
         _,
         {
           rootValue: {
-            ctx: { auth }
-          }
-        }
-      ) => (auth.isAuthenticated ? it.userHasLiked(auth.user) : null)
-    }
-  })
-});
+            ctx: {auth},
+          },
+        },
+      ) => (auth.isAuthenticated ? it.userHasLiked(auth.user) : null),
+    },
+  }),
+})
 ```
 
 Similar to before, we define the `id` and `title` fields as simple resolvers. We also add a field `viewerHasLiked` and check authentication. If the user has not been authenticated, we return `null`. Otherwise we call `track.userHasLiked()` with the currently authenticated user. Again, the `auth` object is coming from our app outside of GraphQL in an Express middleware.
@@ -490,18 +490,18 @@ So, if we call `myDataLoader.load(id)` many different times in a frame of execut
 In our case, we can model `track.userHasLiked()` as a call to a DataLoader instance designed for resolving the the relationship between a user and track in bulk. Something like this:
 
 ```javascript
-import DataLoader from "dataloader";
-import BaseModel from "./BaseModel";
+import DataLoader from 'dataloader'
+import BaseModel from './BaseModel'
 
 const likeLoader = new DataLoader(requests => {
   // requests is now a an array of [track, user] pairs.
   // Batch-load the results for those requests, reorder them to match
   // the order of requests and return.
-});
+})
 
 export default class Track extends BaseModel {
   userHasLiked(user) {
-    return likeLoader.load([this, user]);
+    return likeLoader.load([this, user])
   }
 }
 ```

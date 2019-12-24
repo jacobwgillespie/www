@@ -55,7 +55,7 @@ More below about several of these.
 
 One practice that is opposed to good SEO is putting text inside images, usually done for stylistic effect:
 
-![](/images/seo-basics-for-photographers-2.png)
+![](/images/seo-basics-for-photographers-2.jpg)
 
 And there's even a typo in that image  -  it's harder to fix. Essentially if you add text to an image with an image editor like Photoshop, it will be invisible to search engines. This is not necessarily wrong, just it's just important to know.
 
@@ -86,7 +86,7 @@ You want to avoid "keyword stuffing" here as well. It is much better to describe
 
 Adding alt text to an image in WordPress is simple, just fill it in the box labeled Alt Text:
 
-![](/images/seo-basics-for-photographers-3.png)
+![](/images/seo-basics-for-photographers-3.jpg)
 
 There are similar such options in Squarespace and many other website platforms.
 
@@ -98,7 +98,7 @@ Additionally, if you have an image next to regular body (paragraph) text, search
 
 Your website has a "title" for every page on your website  -  that's the text displayed at the top of your browser window, on the browser tab, or in the bookmarks bar when you bookmark your website. Additionally this title text will be displayed as the search result title. By far, the most important page on your website for the title and description is your homepage:
 
-![](/images/seo-basics-for-photographers-4.png)
+![](/images/seo-basics-for-photographers-4.jpg)
 
 WordPress (and similar website platforms) allows you to adjust the website "name" and website "tagline" and it combines the two to make your homepage's title. Generally speaking, you want your website's name to be the name of your business and the tagline to describe your business like a tagline would, but also be the most important description of your site that you want to provide to search engines.
 

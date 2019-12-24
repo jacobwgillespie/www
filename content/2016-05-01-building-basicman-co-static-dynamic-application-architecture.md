@@ -13,7 +13,7 @@ description = "Several months ago, I decided to build a website for men's skinca
 
 Several months ago, I decided to build a website for men's skincare, beauty, and style products - it would provide a easy way for men to purchase a variety of essential products (shampoo, conditioner, moisturizer, etc.), and would offer a single recommendation for each category. I wanted a one-stop place where you could acquire these essentials, knowing that they would enjoy the products purchased as they had been curated and tested by other men. Avoiding the "I'm in the supermarket, which of these 40 different products do I really need" situation, if you will.
 
-![](/images/building-basicman-co-static-dynamic-application-architecture-2.png)
+![](/images/building-basicman-co-static-dynamic-application-architecture-2.jpg)
 
 [**BasicMan.co**](http://basicman.co/) launched today after many spare weekends of work, and while it's definitely far from perfect, I'm happy with the start.
 
@@ -42,10 +42,10 @@ category-id:
       Category description
     </p>
   products:
-    - asin: "xxxxxxxxxxxxxxxx"
-      offerID: "xxxxxxxxxxxxxxxx"
-      slug: "item-slug"
-      name: "Item Name"
+    - asin: 'xxxxxxxxxxxxxxxx'
+      offerID: 'xxxxxxxxxxxxxxxx'
+      slug: 'item-slug'
+      name: 'Item Name'
       price: 8.99
       description: >
         <p>Item Description.</p>
@@ -134,10 +134,10 @@ First, I set up a map between HTML class names and React components. Something l
 
 ```javascript
 const reactRootMap = {
-  "react-AddToCart": AddToCart,
-  "react-Cart": Cart,
-  "react-CartCount": CartCount
-};
+  'react-AddToCart': AddToCart,
+  'react-Cart': Cart,
+  'react-CartCount': CartCount,
+}
 ```
 
 Next I created a function to dynamically bind elements on the page:
@@ -145,27 +145,27 @@ Next I created a function to dynamically bind elements on the page:
 ```javascript
 const bindReact = store => {
   Object.keys(reactRootMap).forEach(className => {
-    const elements = Array.from(document.getElementsByClassName(className));
-    const DynamicComponent = reactRootMap[className];
+    const elements = Array.from(document.getElementsByClassName(className))
+    const DynamicComponent = reactRootMap[className]
 
     elements.forEach(rootElement => {
-      const dynamicProps = {};
-      const attrs = rootElement.attributes;
+      const dynamicProps = {}
+      const attrs = rootElement.attributes
       for (let i = attrs.length - 1; i >= 0; i--) {
-        const { name, value } = attrs[i];
-        const match = name.match(/data-react-(.*)/);
-        if (match) dynamicProps[match[1]] = value;
+        const {name, value} = attrs[i]
+        const match = name.match(/data-react-(.*)/)
+        if (match) dynamicProps[match[1]] = value
       }
 
       ReactDOM.render(
         <Provider store={store}>
           <DynamicComponent {...dynamicProps} />
         </Provider>,
-        rootElement
-      );
-    });
-  });
-};
+        rootElement,
+      )
+    })
+  })
+}
 ```
 
 It essentially just finds elements by class name, matches them to components from the map, and binds a Redux Provider with the dynamic component inside. It also allows dynamic props with the `data-react-propname` attribute pattern.
@@ -175,13 +175,13 @@ Next I created a function to unbind all roots on the page:
 ```javascript
 const unbindReact = () => {
   Object.keys(reactRootMap).forEach(className => {
-    const elements = Array.from(document.getElementsByClassName(className));
+    const elements = Array.from(document.getElementsByClassName(className))
 
     elements.forEach(rootElement => {
-      ReactDOM.unmountComponentAtNode(rootElement);
-    });
-  });
-};
+      ReactDOM.unmountComponentAtNode(rootElement)
+    })
+  })
+}
 ```
 
 With these in place, I just had to listen to the SPF events (`spfdone` for page load, and `spfprocess` for the start of HTML replacement) and bind / unbind the React elements on demand.

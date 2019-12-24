@@ -7,7 +7,7 @@ tags = ["React", "JavaScript", "Ruby on Rails", "Software Development"]
 description = "Five months ago I launched Basic Man, a website providing a curated list of mens essentials..."
 +++
 
-<p><img src="/images/replacing-react-with-rails-1.png" title="It's so simple!" /></p>
+<p><img src="/images/replacing-react-with-rails-1.jpg" title="It's so simple!" /></p>
 
 **tl;dr** - I replaced a ReactJS application with Rails + UJS. You will most likely identify this as a case where React was overkill, and I would agree. This article is an exploration of the decisions and events that lead to that realization, in the hopes that it might benefit others.
 
@@ -106,7 +106,7 @@ The snippet renders certain partials and replaces certain div's with their new c
 
 Rails ships with the _jquery-ujs_ gem by default, which uses jQuery to provide the UJS functionality. For my application, I'm not using jQuery anywhere else so it seemed like a bit overkill to include it just for this purpose, so I replaced it with [_vanilla-ujs_](https://github.com/hauleth/vanilla-ujs), a pure-JS implementation of UJS.
 
-![](/images/replacing-react-with-rails-3.png)
+![](/images/replacing-react-with-rails-3.jpg)
 
 For the HTML updates themselves, I wanted something better than setting innerHTML as that destroys and recreates the DOM elements. This causes issues especially with UI like the select box for choosing product quantity on the cart page. If the HTML replacement happens while the select box is open, it will get destroyed, replaced, and the user will be jarred by the select box being taken out from under them.
 
@@ -120,10 +120,10 @@ morph(".cart-count-component", "<%= escape_morph_javascript(render partial: 'car
 
 ```javascript
 function morph(selector, contents) {
-  var qs = document.querySelectorAll(selector);
+  var qs = document.querySelectorAll(selector)
   Array.prototype.slice.call(qs).forEach(function(el) {
-    morphdom(el, contents);
-  });
+    morphdom(el, contents)
+  })
 }
 ```
 
