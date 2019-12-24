@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "zola build && workbox injectManifest workbox-config.js",
+    "build-preview": "zola build --base-url $DEPLOY_PRIME_URL && workbox injectManifest workbox-config.js"
+  },
+  "devDependencies": {
+    "prettier": "^1.19.1",
+    "workbox-cli": "^4.3.1"
+  },
+  "prettier": {
+    "bracketSpacing": false,
+    "printWidth": 120,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all"
+  }
+}
