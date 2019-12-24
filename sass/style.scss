@@ -6,7 +6,7 @@ html {
 }
 
 body {
-  font-family: "Iowan Old Style", "Sitka Text", Palatino, "Book Antiqua", serif;
+  font-family: 'Iowan Old Style', 'Sitka Text', Palatino, 'Book Antiqua', serif;
   font-size: 1em;
   line-height: 1.5em;
   max-width: 700px;
@@ -132,7 +132,7 @@ img {
 }
 
 pre {
-  font-family: Hasklig, "Source Code Pro", "Courier New", Courier, monospace;
+  font-family: Hasklig, 'Source Code Pro', 'Courier New', Courier, monospace;
   padding: 2em;
   overflow-x: scroll;
 }
@@ -184,9 +184,9 @@ body > section article {
   margin-bottom: 0.69444444em;
   width: 100%;
 
-  [itemprop="datePublished"] {
+  [itemprop='datePublished'] {
     font-size: small;
-    color: #aaa;
+    color: #333;
     text-align: right;
   }
 }
@@ -195,7 +195,7 @@ body > section article {
 body > footer {
   margin-top: 1.5em;
   font-size: small;
-  color: #aaa;
+  color: #333;
   border-top: 1px solid #efefef;
   padding-top: 1.5em;
 }
