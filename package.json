@@ -5,8 +5,8 @@
     "build-preview": "zola build --base-url $DEPLOY_PRIME_URL && workbox injectManifest workbox-config.js"
   },
   "devDependencies": {
-    "prettier": "^1.19.1",
-    "workbox-cli": "^4.3.1"
+    "prettier": "^2.0.4",
+    "workbox-cli": "^5.1.2"
   },
   "prettier": {
     "bracketSpacing": false,
