@@ -143,12 +143,12 @@ const reactRootMap = {
 Next I created a function to dynamically bind elements on the page:
 
 ```javascript
-const bindReact = store => {
-  Object.keys(reactRootMap).forEach(className => {
+const bindReact = (store) => {
+  Object.keys(reactRootMap).forEach((className) => {
     const elements = Array.from(document.getElementsByClassName(className))
     const DynamicComponent = reactRootMap[className]
 
-    elements.forEach(rootElement => {
+    elements.forEach((rootElement) => {
       const dynamicProps = {}
       const attrs = rootElement.attributes
       for (let i = attrs.length - 1; i >= 0; i--) {
@@ -174,10 +174,10 @@ Next I created a function to unbind all roots on the page:
 
 ```javascript
 const unbindReact = () => {
-  Object.keys(reactRootMap).forEach(className => {
+  Object.keys(reactRootMap).forEach((className) => {
     const elements = Array.from(document.getElementsByClassName(className))
 
-    elements.forEach(rootElement => {
+    elements.forEach((rootElement) => {
       ReactDOM.unmountComponentAtNode(rootElement)
     })
   })

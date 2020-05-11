@@ -418,14 +418,14 @@ export default new GraphQLObjectType({
   fields: () => ({
     id: {
       type: GraphQLString,
-      resolve: it => it.uuid,
+      resolve: (it) => it.uuid,
     },
 
     name: {type: GraphQLString},
 
     tracks: {
       type: new GraphQLArray(trackType),
-      resolve: it => it.tracks(),
+      resolve: (it) => it.tracks(),
     },
   }),
 })
@@ -452,7 +452,7 @@ export default new GraphQLObjectType({
   fields: () => ({
     id: {
       type: GraphQLString,
-      resolve: it => it.uuid,
+      resolve: (it) => it.uuid,
     },
 
     title: {type: GraphQLString},
@@ -493,7 +493,7 @@ In our case, we can model `track.userHasLiked()` as a call to a DataLoader insta
 import DataLoader from 'dataloader'
 import BaseModel from './BaseModel'
 
-const likeLoader = new DataLoader(requests => {
+const likeLoader = new DataLoader((requests) => {
   // requests is now a an array of [track, user] pairs.
   // Batch-load the results for those requests, reorder them to match
   // the order of requests and return.
