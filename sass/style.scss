@@ -172,7 +172,32 @@ body > header {
   a,
   a:visited {
     color: inherit;
+    position: relative;
     text-decoration: none;
+    text-shadow: 2px 2px white, 2px -2px white, -2px 2px white, -2px -2px white;
+  }
+
+  a::after {
+    background: #d73a49;
+    background: linear-gradient(
+      90deg,
+      #d73a49 0%,
+      #d73a49 20%,
+      #ffd33d 20%,
+      #ffd33d 40%,
+      #28a745 40%,
+      #28a745 60%,
+      #0366d6 60%,
+      #0366d6 80%,
+      #6f42c1 80%
+    );
+    bottom: 4px;
+    content: '';
+    height: 4px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
   }
 }
 
