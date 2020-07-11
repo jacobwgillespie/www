@@ -1,7 +1,7 @@
-+++
-title = "Hardware and Software"
-weight = 1
-+++
+---
+title: Hardware and Software
+slug: /uses
+---
 
 **Note from May 2016:** I have begun to update this list - many sections are still lacking detail, but the basic foundations are in place.
 

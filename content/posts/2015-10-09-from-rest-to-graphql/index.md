@@ -1,13 +1,10 @@
-+++
-title = "From REST to GraphQL"
-date = 2015-10-09T00:00:00Z
-slug = "/from-rest-to-graphql-b4e95e94c26b"
-category = "Tech"
-tags = ["JavaScript", "GraphQL", "React"]
-description = "Exploring the transition from REST APIs to GraphQL at Playlist..."
-+++
+---
+title: From REST to GraphQL
+date: '2015-10-09T00:00:00Z'
+description: Exploring the transition from REST APIs to GraphQL at Playlist...
+---
 
-![](/images/from-rest-to-graphql-1.jpg)
+![](./from-rest-to-graphql-1.jpg)
 
 **Disclaimer:** GraphQL is still new and best practices are still emerging. This post describes some of my journey with implementing a GraphQL backend service, so it is a snapshot of what I've learned so far, presented in the hopes that it will be useful to others. Also, some of the specific real-world implementation details internal to Playlist have been paraphrased / simplified / anonymized for obvious reasons.
 
@@ -196,7 +193,7 @@ Here we're embedding tracks and even a subset of their associations, with enough
 
 This was a conscious design decision to augment responses rather than add more endpoints - we could have done something like `/playlists/ID/forProfile`, `/playlists/ID/forNotifications`, etc.
 
-![](/images/from-rest-to-graphql-2.jpg)
+![](./from-rest-to-graphql-2.jpg)
 
 There is something to be said for the simplicity that provides. To add a field to a track, for example, you locate the `_track.json.jbuilder` partial and add the additional field. However as views grew, performance quickly became an issue in two distinct ways.
 
@@ -481,7 +478,7 @@ This solves one of our two issues with our REST API: clients can now request onl
 
 ### DataLoader FTW
 
-![](/images/from-rest-to-graphql-3.jpg)
+![](./from-rest-to-graphql-3.jpg)
 
 [DataLoader](https://github.com/facebook/dataloader) provides an API that consolidates any calls to `load()` in a frame of execution (event loop tick) and then batch-loads data based on the collection of calls. Additionally, it caches results by key, so subsequent calls to `load()` with the same arguments return cached directly.
 
