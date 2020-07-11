@@ -136,6 +136,7 @@ module.exports = {
       options: {
         workboxConfig: {
           globPatterns: ['**/*'],
+          globIgnores: ['_headers', '_redirects'],
         },
       },
     },
