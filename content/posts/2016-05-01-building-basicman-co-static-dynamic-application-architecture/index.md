@@ -1,19 +1,16 @@
-+++
-title = "Building BasicMan.co: Static-Dynamic Application Architecture"
-date = 2016-05-01T00:00:00Z
-slug = "/building-basicman-co-static-dynamic-application-architecture-55f9f8021eaf"
-category = "Tech"
-tags = ["JavaScript", "React", "Static Site"]
-description = "Several months ago, I decided to build a website for men's skincare, beauty, and style products - it would provide a easy way for men to purchase a variety of essential products..."
-+++
+---
+title: 'Building BasicMan.co: Static-Dynamic Application Architecture'
+date: '2016-05-01T00:00:00Z'
+description: Several months ago, I decided to build a website for men's skincare, beauty, and style products - it would provide a easy way for men to purchase a variety of essential products...
+---
 
-![](/images/building-basicman-co-static-dynamic-application-architecture-1.jpg)
+![](./building-basicman-co-static-dynamic-application-architecture-1.jpg)
 
-**Update:** I [published an update to this article](/replacing-react-with-rails-66e25cd23777) about some of the changes to Basic Man over the past five months.
+**Update:** I [published an update to this article](/2016-10-05-replacing-react-with-rails) about some of the changes to Basic Man over the past five months.
 
 Several months ago, I decided to build a website for men's skincare, beauty, and style products - it would provide a easy way for men to purchase a variety of essential products (shampoo, conditioner, moisturizer, etc.), and would offer a single recommendation for each category. I wanted a one-stop place where you could acquire these essentials, knowing that they would enjoy the products purchased as they had been curated and tested by other men. Avoiding the "I'm in the supermarket, which of these 40 different products do I really need" situation, if you will.
 
-![](/images/building-basicman-co-static-dynamic-application-architecture-2.jpg)
+![](./building-basicman-co-static-dynamic-application-architecture-2.jpg)
 
 [**BasicMan.co**](http://basicman.co/) launched today after many spare weekends of work, and while it's definitely far from perfect, I'm happy with the start.
 
@@ -237,7 +234,7 @@ For product images, I set up a script to build optimized sizes and compress them
 ```bash
 #!/usr/bin/env bash
 
-cd ./source/images/products/source
+cd ./source./products/source
 
 for i in *jpg; do
   echo "Building $i"

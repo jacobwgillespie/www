@@ -1,13 +1,10 @@
-+++
-title = "Replacing React with Rails"
-date = 2016-10-05T00:00:00Z
-slug = "/replacing-react-with-rails-66e25cd23777"
-category = "Tech"
-tags = ["React", "JavaScript", "Ruby on Rails", "Software Development"]
-description = "Five months ago I launched Basic Man, a website providing a curated list of mens essentials..."
-+++
+---
+title: Replacing React with Rails
+date: '2016-10-05T00:00:00Z'
+description: Five months ago I launched Basic Man, a website providing a curated list of mens essentials...
+---
 
-<p><img src="/images/replacing-react-with-rails-1.jpg" title="It's so simple!" /></p>
+<p><img src="./replacing-react-with-rails-1.jpg" title="It's so simple!" /></p>
 
 **tl;dr** - I replaced a ReactJS application with Rails + UJS. You will most likely identify this as a case where React was overkill, and I would agree. This article is an exploration of the decisions and events that lead to that realization, in the hopes that it might benefit others.
 
@@ -17,7 +14,7 @@ Additionally, React is awesome and has transformed what is possible in frontend 
 
 Five months ago I launched [**Basic Man**](https://basicman.co/), a website providing a curated list of mens essentials (shampoo, razors, cleanser, toothpaste, etc.) in an easy-to-browse and easy-to-order format. The website provides shopping cart functionality, powered by Amazon, where users can quickly add items from the list into a "remote" cart on Amazon.com. When they are ready to complete their purchase, they are redirected to Amazon with the items pre-filled into their cart. This is a feature provided by Amazon's API.
 
-I [wrote an article](/building-basicman-co-static-dynamic-application-architecture-55f9f8021eaf) on some of the technical aspects of building Basic Man. I was quite happy with how the site was architected  -  the summary is:
+I [wrote an article](/2016-05-01-building-basicman-co-static-dynamic-application-architecture) on some of the technical aspects of building Basic Man. I was quite happy with how the site was architected  -  the summary is:
 
 - The "data" was stored in a YAML file that was fed into the Middleman static site generator to build a static site
 - Smooth page transitions where accomplished using SPFjs, a library similar to pjax or Turbolinks written by YouTube that updates page elements on navigation based on a special JSON response format from the remote server
@@ -63,7 +60,7 @@ So, like many times before, I thought to myself, "what about Rails?"
 
 ## What About Rails?
 
-![](/images/replacing-react-with-rails-2.png)
+![](./replacing-react-with-rails-2.png)
 
 Ruby on Rails is an amazing web framework. It is not the fastest out there, is not the best tool for many jobs, and doesn't have the same hype as other technologies (probably a pro not a con). But what it does have is 12 years of development utilization. 12 years of bugfixes, features, security audits, third-party addons, documentation, developer mindshare, and overall polish. This is a powerful thing.
 
@@ -96,26 +93,36 @@ In the case of the AJAX forms, the server can then respond with a JavaScript vie
 
 Here's an example for the JavaScript template for the response to add to cart:
 
-```erb
-$(".product-card .add-to-cart-<%= @product.id %>").html("<%= escape_javascript(render partial: 'products/add_to_cart', locals: { text: '+', product: @product }) %>");
-$(".product-detail .add-to-cart-<%= @product.id %>").html("<%= escape_javascript(render partial: 'products/add_to_cart', locals: { product: @product }) %>");
-$(".cart-count-component").html("<%= escape_javascript(render partial: 'cart/count') %>");
+```javascript
+$('.product-card .add-to-cart-<%= @product.id %>').html(
+  "<%= escape_javascript(render partial: 'products/add_to_cart', locals: { text: '+', product: @product }) %>",
+)
+$('.product-detail .add-to-cart-<%= @product.id %>').html(
+  "<%= escape_javascript(render partial: 'products/add_to_cart', locals: { product: @product }) %>",
+)
+$('.cart-count-component').html("<%= escape_javascript(render partial: 'cart/count') %>")
 ```
 
 The snippet renders certain partials and replaces certain div's with their new contents. Pretty simple, right?
 
 Rails ships with the _jquery-ujs_ gem by default, which uses jQuery to provide the UJS functionality. For my application, I'm not using jQuery anywhere else so it seemed like a bit overkill to include it just for this purpose, so I replaced it with [_vanilla-ujs_](https://github.com/hauleth/vanilla-ujs), a pure-JS implementation of UJS.
 
-![](/images/replacing-react-with-rails-3.jpg)
+![](./replacing-react-with-rails-3.jpg)
 
 For the HTML updates themselves, I wanted something better than setting innerHTML as that destroys and recreates the DOM elements. This causes issues especially with UI like the select box for choosing product quantity on the cart page. If the HTML replacement happens while the select box is open, it will get destroyed, replaced, and the user will be jarred by the select box being taken out from under them.
 
 Coming from React, which utilizes a DOM diffing algorithm to mutate DOM to the desired state rather than replace it wholesale, that approach seemed like a good idea here as well. I added the [morphdom](https://github.com/patrick-steele-idem/morphdom) JavaScript library and utilized it in the JS views to update the content:
 
-```erb
-morph(".product-card .add-to-cart-<%= @product.id %>", "<%= escape_morph_javascript(render partial: 'products/add_to_cart', locals: { text: '+', product: @product }) %>");
-morph(".product-detail .add-to-cart-<%= @product.id %>", "<%= escape_morph_javascript(render partial: 'products/add_to_cart', locals: { product: @product }) %>");
-morph(".cart-count-component", "<%= escape_morph_javascript(render partial: 'cart/count') %>");
+```javascript
+morph(
+  '.product-card .add-to-cart-<%= @product.id %>',
+  "<%= escape_morph_javascript(render partial: 'products/add_to_cart', locals: { text: '+', product: @product }) %>",
+)
+morph(
+  '.product-detail .add-to-cart-<%= @product.id %>',
+  "<%= escape_morph_javascript(render partial: 'products/add_to_cart', locals: { product: @product }) %>",
+)
+morph('.cart-count-component', "<%= escape_morph_javascript(render partial: 'cart/count') %>")
 ```
 
 ```javascript

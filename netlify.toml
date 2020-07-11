@@ -1,9 +1,0 @@
-[build]
-publish = "public"
-command = "yarn build"
-
-[build.environment]
-ZOLA_VERSION = "0.9.0"
-
-[context.deploy-preview]
-command = "yarn build-preview"
