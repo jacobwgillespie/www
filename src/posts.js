@@ -4,17 +4,39 @@ import path from 'path'
 import {parseISO, format} from 'date-fns'
 import remark from 'remark'
 import html from 'remark-html'
+import * as shiki from 'shiki'
+import visit from 'unist-util-visit'
 
 const pagesDirectory = path.join(process.cwd(), 'content', 'pages')
 const postsDirectory = path.join(process.cwd(), 'content', 'posts')
+
+async function renderMarkdown(content) {
+  const shikiTheme = shiki.loadTheme('./src/code-theme.json')
+  const highlighter = await shiki.getHighlighter({theme: shikiTheme})
+
+  return await remark()
+    .use(highlight, {highlighter})
+    .use(html)
+    .process(content || '')
+}
+
+function highlight({highlighter} = {}) {
+  return (ast) => visit(ast, 'code', visitor)
+  function visitor(node) {
+    node.type = 'html'
+    if (!node.lang) {
+      node.value = `<pre class="shiki-unknown"><code>${node.value}</code></pre>`
+    } else {
+      node.value = highlighter.codeToHtml(node.value, node.lang)
+    }
+  }
+}
 
 export async function getPageBySlug(slug) {
   const fullPath = path.join(pagesDirectory, `${slug}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const {data, content} = matter(fileContents)
-  const markdown = await remark()
-    .use(html)
-    .process(content || '')
+  const markdown = await renderMarkdown(content)
   const renderedContent = markdown.toString()
   return {slug, frontmatter: data, content: renderedContent}
 }
@@ -31,9 +53,7 @@ export async function getPostBySlug(slug) {
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const {data, content} = matter(fileContents)
   const date = format(parseISO(data.date), 'MMMM dd, yyyy')
-  const markdown = await remark()
-    .use(html)
-    .process(content || '')
+  const markdown = await renderMarkdown(content)
   const renderedContent = markdown.toString()
   return {slug, frontmatter: {...data, date, dateISO: data.date}, content: renderedContent}
 }
