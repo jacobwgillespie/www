@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import {getAllPosts, getPostBySlug} from '../src/posts'
+import {getAllPages, getAllPosts, getPageBySlug, getPostBySlug} from '../src/posts'
 import {DateElement} from '../src/components/DateElement'
 import {Layout} from '../src/components/Layout'
 import {SEO} from '../src/components/SEO'
@@ -10,15 +10,23 @@ const Title = styled.h1`
 `
 
 export const getStaticProps = async ({params}) => {
-  const post = await getPostBySlug(params.slug)
-  return {props: {post}}
+  try {
+    const post = await getPostBySlug(params.slug)
+    return {props: {post}}
+  } catch {
+    const post = await getPageBySlug(params.slug)
+    return {props: {post}}
+  }
 }
 
 export async function getStaticPaths() {
   const posts = await getAllPosts()
+  const pages = await getAllPages()
+
+  const all = posts.concat(...pages)
 
   return {
-    paths: posts.map((post) => {
+    paths: all.map((post) => {
       return {
         params: {
           slug: post.slug,
