@@ -18,7 +18,9 @@
     "react-helmet": "^5.2.1",
     "remark": "^13.0.0",
     "remark-html": "^13.0.1",
-    "styled-components": "^5.1.1"
+    "shiki": "^0.2.7",
+    "styled-components": "^5.1.1",
+    "unist-util-visit": "^2.0.3"
   },
   "devDependencies": {
     "prettier": "2.0.5"
