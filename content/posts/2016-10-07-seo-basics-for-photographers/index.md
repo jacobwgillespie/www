@@ -172,26 +172,26 @@ Here are a few videos directly from Google on various SEO topics:
 
 ### What are some myths about SEO?
 
-<div class="video">
-<iframe src="https://www.youtube-nocookie.com/embed/gJ9Xt5PohgU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div className="video">
+<iframe src="https://www.youtube-nocookie.com/embed/gJ9Xt5PohgU" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 </div>
 
 ### 5 common mistakes in SEO (and 6 good ideas!)
 
-<div class="video">
-<iframe src="https://www.youtube-nocookie.com/embed/6AmRg3p79pM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div className="video">
+<iframe src="https://www.youtube-nocookie.com/embed/6AmRg3p79pM" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 </div>
 
 ### What are the top 3–5 SEO areas where webmasters make the most mistakes?
 
-<div class="video">
-<iframe src="https://www.youtube-nocookie.com/embed/421aTJI2Nxc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div className="video">
+<iframe src="https://www.youtube-nocookie.com/embed/421aTJI2Nxc" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 </div>
 
 ### How does Google Search work?
 
-<div class="video">
-<iframe src="https://www.youtube-nocookie.com/embed/KyCYyoGusqs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div className="video">
+<iframe src="https://www.youtube-nocookie.com/embed/KyCYyoGusqs" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 </div>
 
 ### Google Webmasters

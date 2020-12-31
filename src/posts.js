@@ -6,6 +6,8 @@ import remark from 'remark'
 import html from 'remark-html'
 import * as shiki from 'shiki'
 import visit from 'unist-util-visit'
+import renderToString from 'next-mdx-remote/render-to-string'
+import Image from 'next/image'
 
 const pagesDirectory = path.join(process.cwd(), 'content', 'pages')
 const postsDirectory = path.join(process.cwd(), 'content', 'posts')
@@ -14,10 +16,16 @@ async function renderMarkdown(content) {
   const shikiTheme = shiki.loadTheme('./src/code-theme.json')
   const highlighter = await shiki.getHighlighter({theme: shikiTheme})
 
+  return await renderToString(content, {
+    components: {Image: Image},
+    mdxOptions: {remarkPlugins: [[highlight, {highlighter}]]},
+  })
+
   return await remark()
     .use(highlight, {highlighter})
     .use(html)
     .process(content || '')
+    .toString()
 }
 
 function highlight({highlighter} = {}) {
@@ -37,8 +45,7 @@ export async function getPageBySlug(slug) {
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const {data, content} = matter(fileContents)
   const markdown = await renderMarkdown(content)
-  const renderedContent = markdown.toString()
-  return {slug, frontmatter: data, content: renderedContent}
+  return {slug, frontmatter: data, content: markdown, originalContent: content}
 }
 
 export async function getAllPages() {
@@ -54,8 +61,7 @@ export async function getPostBySlug(slug) {
   const {data, content} = matter(fileContents)
   const date = format(parseISO(data.date), 'MMMM dd, yyyy')
   const markdown = await renderMarkdown(content)
-  const renderedContent = markdown.toString()
-  return {slug, frontmatter: {...data, date, dateISO: data.date}, content: renderedContent}
+  return {slug, frontmatter: {...data, date, dateISO: data.date}, content: markdown, originalContent: content}
 }
 
 export async function getAllPosts() {
