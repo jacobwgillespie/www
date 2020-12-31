@@ -1,6 +1,5 @@
 ---
 title: Jacob Gillespie
-slug: /
 ---
 
 Jacob is currently employed at [EraDB](http://eradb.com/) as a staff platform engineer. He was granted a Tier 1 Exceptional Promise visa in digital technology from the United Kingdom and resides in London. Jacob has previously worked at [Thorn](https://thorn.org), [Webflow](https://webflow.com), and [Playlist](https://www.playlist.com/).
