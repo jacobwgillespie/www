@@ -3,7 +3,7 @@
   "name": "@jacobwgillespie/www",
   "scripts": {
     "build": "next build",
-    "dev": "next dev",
+    "dev": "next-remote-watch ./content",
     "fmt": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "next start"
   },
@@ -12,6 +12,7 @@
     "date-fns": "^2.14.0",
     "gray-matter": "^4.0.2",
     "next": "^10.0.4",
+    "next-remote-watch": "^0.3.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
