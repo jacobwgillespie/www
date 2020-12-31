@@ -1,10 +1,10 @@
-import {Link} from 'gatsby'
+import Link from 'next/link'
 import React from 'react'
 import styled from 'styled-components'
 import {GlobalStyle} from './GlobalStyle'
 
 const Header = styled.header.attrs({
-  children: <Link to="/">Jacob Gillespie</Link>,
+  children: <Link href="/">Jacob Gillespie</Link>,
 })`
   font-variant: small-caps;
   font-weight: 500;
@@ -55,7 +55,7 @@ const Footer = styled.footer.attrs({
   padding-top: 1.5em;
 `
 
-export const Layout = ({location, title, children}) => {
+export const Layout = ({title, children}) => {
   return (
     <div>
       <GlobalStyle />
