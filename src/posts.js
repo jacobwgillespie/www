@@ -19,6 +19,13 @@ export async function getPageBySlug(slug) {
   return {slug, frontmatter: data, content: renderedContent}
 }
 
+export async function getAllPages() {
+  const filenames = fs.readdirSync(pagesDirectory)
+  const slugs = filenames.map((filename) => filename.replace(/\.md$/, ''))
+  const pages = await Promise.all(slugs.filter((slug) => slug !== 'index').map((slug) => getPageBySlug(slug)))
+  return pages
+}
+
 export async function getPostBySlug(slug) {
   const fullPath = path.join(postsDirectory, slug, 'index.md')
   const fileContents = fs.readFileSync(fullPath, 'utf8')
