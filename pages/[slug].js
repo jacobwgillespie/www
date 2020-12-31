@@ -4,6 +4,8 @@ import {getAllPages, getAllPosts, getPageBySlug, getPostBySlug} from '../src/pos
 import {DateElement} from '../src/components/DateElement'
 import {Layout} from '../src/components/Layout'
 import {SEO} from '../src/components/SEO'
+import hydrate from 'next-mdx-remote/hydrate'
+import Image from 'next/image'
 
 const Title = styled.h1`
   margin-top: 0;
@@ -38,6 +40,7 @@ export async function getStaticPaths() {
 }
 
 const Page = ({post}) => {
+  const hydratedContent = hydrate(post.content, {components: {Image: Image}})
   return (
     <Layout>
       <SEO title={post.frontmatter.title} description={post.frontmatter.description || post.excerpt} />
@@ -48,8 +51,7 @@ const Page = ({post}) => {
           </div>
         )}
         <Title itemProp="headline">{post.frontmatter.title}</Title>
-
-        <div itemProp="articleBody" dangerouslySetInnerHTML={{__html: post.content}} />
+        <div itemProp="articleBody">{hydratedContent}</div>
       </article>
     </Layout>
   )
