@@ -5,6 +5,8 @@ import {DateElement} from '../src/components/DateElement'
 import {Layout} from '../src/components/Layout'
 import {SEO} from '../src/components/SEO'
 import {getAllPosts, getPageBySlug} from '../src/posts'
+import hydrate from 'next-mdx-remote/hydrate'
+import Image from 'next/image'
 
 const ListItem = styled.article`
   display: grid;
@@ -21,13 +23,14 @@ export const getStaticProps = async () => {
 }
 
 const BlogIndex = ({posts, page}) => {
+  const hydratedContent = hydrate(page.content, {components: {Image: Image}})
   return (
     <Layout title="Jacob Gillespie">
       <SEO
         title="Jacob Gillespie"
         // description={post.frontmatter.description || data.content.excerpt}
       />
-      <div dangerouslySetInnerHTML={{__html: page.content}} />
+      <div>{hydratedContent}</div>
       <section>
         <h2>Posts</h2>
         {posts.map((post) => {
