@@ -1,10 +1,10 @@
 {
   "private": true,
-  "name": "@jacobwgillespie/www",
   "scripts": {
     "build": "next build",
     "dev": "next-remote-watch ./content",
     "fmt": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "fmt:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "next start"
   },
   "dependencies": {
@@ -24,7 +24,11 @@
     "unist-util-visit": "^2.0.3"
   },
   "devDependencies": {
-    "prettier": "2.0.5"
+    "depcheck": "^1.3.1",
+    "prettier": "2.0.5",
+    "prettier-plugin-organize-imports": "^1.1.1",
+    "prettier-plugin-pkg": "^0.8.0",
+    "typescript": "^4.1.3"
   },
   "prettier": {
     "bracketSpacing": false,
