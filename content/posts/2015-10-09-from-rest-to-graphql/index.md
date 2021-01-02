@@ -4,7 +4,7 @@ date: '2015-10-09T00:00:00Z'
 description: Exploring the transition from REST APIs to GraphQL at Playlist...
 ---
 
-<Image src="/from-rest-to-graphql-1.jpg" width={1920} height={600} />
+<img src="/from-rest-to-graphql-1.jpg" width={1920} height={600} />
 
 **Disclaimer:** GraphQL is still new and best practices are still emerging. This post describes some of my journey with implementing a GraphQL backend service, so it is a snapshot of what I've learned so far, presented in the hopes that it will be useful to others. Also, some of the specific real-world implementation details internal to Playlist have been paraphrased / simplified / anonymized for obvious reasons.
 
@@ -193,7 +193,7 @@ Here we're embedding tracks and even a subset of their associations, with enough
 
 This was a conscious design decision to augment responses rather than add more endpoints - we could have done something like `/playlists/ID/forProfile`, `/playlists/ID/forNotifications`, etc.
 
-<Image src="/from-rest-to-graphql-2.jpg" width={540} height={318} />
+<img src="/from-rest-to-graphql-2.jpg" width={540} height={318} />
 
 There is something to be said for the simplicity that provides. To add a field to a track, for example, you locate the `_track.json.jbuilder` partial and add the additional field. However as views grew, performance quickly became an issue in two distinct ways.
 
@@ -478,7 +478,7 @@ This solves one of our two issues with our REST API: clients can now request onl
 
 ### DataLoader FTW
 
-<Image src="/from-rest-to-graphql-3.jpg" width={540} height={385} />
+<img src="/from-rest-to-graphql-3.jpg" width={540} height={385} />
 
 [DataLoader](https://github.com/facebook/dataloader) provides an API that consolidates any calls to `load()` in a frame of execution (event loop tick) and then batch-loads data based on the collection of calls. Additionally, it caches results by key, so subsequent calls to `load()` with the same arguments return cached directly.
 

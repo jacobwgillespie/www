@@ -40,7 +40,7 @@ export async function getStaticPaths() {
 }
 
 const Page = ({post}) => {
-  const hydratedContent = hydrate(post.content, {components: {Image: Image}})
+  const hydratedContent = hydrate(post.content, {components: {img: Image}})
   return (
     <Layout>
       <SEO title={post.frontmatter.title} description={post.frontmatter.description || post.excerpt} />
