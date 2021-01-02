@@ -7,6 +7,6 @@ Jacob is currently employed at [EraDB](http://eradb.com/) as a staff platform en
 
 Jacob's interests include application infrastructure and deployment, full-stack web development, and compiled languages like Go and Rust.
 
-Jacob maintains the [Styled Icons](https://github.com/jacobwgillespie/styled-icons) open-source project and is currently developing next-generation tooling for managing infrastructure as code.
+Jacob maintains the [Styled Icons](https://github.com/styled-icons/styled-icons) open-source project and is currently developing next-generation tooling for managing infrastructure as code.
 
 [GitHub](https://github.com/jacobwgillespie) · [Twitter](https://twitter.com/jacobwgillespie) · [Contact](mailto:jacobwgillespie@gmail.com)
