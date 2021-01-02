@@ -17,7 +17,7 @@ async function renderMarkdown(content) {
   const highlighter = await shiki.getHighlighter({theme: shikiTheme})
 
   return await renderToString(content, {
-    components: {Image: Image},
+    components: {img: Image},
     mdxOptions: {remarkPlugins: [[highlight, {highlighter}]]},
   })
 

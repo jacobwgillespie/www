@@ -23,7 +23,7 @@ export const getStaticProps = async () => {
 }
 
 const BlogIndex = ({posts, page}) => {
-  const hydratedContent = hydrate(page.content, {components: {Image: Image}})
+  const hydratedContent = hydrate(page.content, {components: {img: Image}})
   return (
     <Layout title="Jacob Gillespie">
       <SEO title="Jacob Gillespie" description={page.frontmatter.description} />
