@@ -4,7 +4,7 @@ date: '2016-10-05T00:00:00Z'
 description: Five months ago I launched Basic Man, a website providing a curated list of mens essentials...
 ---
 
-<p><img src="./replacing-react-with-rails-1.jpg" title="It's so simple!" /></p>
+<p><img src="/replacing-react-with-rails-1.jpg" title="It's so simple!" width={1666} height={882} /></p>
 
 **tl;dr** - I replaced a ReactJS application with Rails + UJS. You will most likely identify this as a case where React was overkill, and I would agree. This article is an exploration of the decisions and events that lead to that realization, in the hopes that it might benefit others.
 
@@ -60,7 +60,7 @@ So, like many times before, I thought to myself, "what about Rails?"
 
 ## What About Rails?
 
-![](./replacing-react-with-rails-2.png)
+<img src="/replacing-react-with-rails-2.png" width={1188} height={420} />
 
 Ruby on Rails is an amazing web framework. It is not the fastest out there, is not the best tool for many jobs, and doesn't have the same hype as other technologies (probably a pro not a con). But what it does have is 12 years of development utilization. 12 years of bugfixes, features, security audits, third-party addons, documentation, developer mindshare, and overall polish. This is a powerful thing.
 
@@ -107,7 +107,7 @@ The snippet renders certain partials and replaces certain div's with their new c
 
 Rails ships with the _jquery-ujs_ gem by default, which uses jQuery to provide the UJS functionality. For my application, I'm not using jQuery anywhere else so it seemed like a bit overkill to include it just for this purpose, so I replaced it with [_vanilla-ujs_](https://github.com/hauleth/vanilla-ujs), a pure-JS implementation of UJS.
 
-![](./replacing-react-with-rails-3.jpg)
+<img src="/replacing-react-with-rails-3.jpg" width={2000} height={832} />
 
 For the HTML updates themselves, I wanted something better than setting innerHTML as that destroys and recreates the DOM elements. This causes issues especially with UI like the select box for choosing product quantity on the cart page. If the HTML replacement happens while the select box is open, it will get destroyed, replaced, and the user will be jarred by the select box being taken out from under them.
 

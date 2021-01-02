@@ -4,7 +4,7 @@ date: '2015-10-09T00:00:00Z'
 description: Exploring the transition from REST APIs to GraphQL at Playlist...
 ---
 
-![](./from-rest-to-graphql-1.jpg)
+<img src="/from-rest-to-graphql-1.jpg" width={1920} height={600} />
 
 **Disclaimer:** GraphQL is still new and best practices are still emerging. This post describes some of my journey with implementing a GraphQL backend service, so it is a snapshot of what I've learned so far, presented in the hopes that it will be useful to others. Also, some of the specific real-world implementation details internal to Playlist have been paraphrased / simplified / anonymized for obvious reasons.
 
@@ -193,7 +193,7 @@ Here we're embedding tracks and even a subset of their associations, with enough
 
 This was a conscious design decision to augment responses rather than add more endpoints - we could have done something like `/playlists/ID/forProfile`, `/playlists/ID/forNotifications`, etc.
 
-![](./from-rest-to-graphql-2.jpg)
+<img src="/from-rest-to-graphql-2.jpg" width={540} height={318} />
 
 There is something to be said for the simplicity that provides. To add a field to a track, for example, you locate the `_track.json.jbuilder` partial and add the additional field. However as views grew, performance quickly became an issue in two distinct ways.
 
@@ -478,7 +478,7 @@ This solves one of our two issues with our REST API: clients can now request onl
 
 ### DataLoader FTW
 
-![](./from-rest-to-graphql-3.jpg)
+<img src="/from-rest-to-graphql-3.jpg" width={540} height={385} />
 
 [DataLoader](https://github.com/facebook/dataloader) provides an API that consolidates any calls to `load()` in a frame of execution (event loop tick) and then batch-loads data based on the collection of calls. Additionally, it caches results by key, so subsequent calls to `load()` with the same arguments return cached directly.
 
@@ -551,8 +551,8 @@ In conclusion, GraphQL is pretty awesome and has been solving some real-world pr
 
 One more thing - check out this video. It was immensely helpful for me in understanding some of the benefits of GraphQL and its real-world implementation at the Financial Times.
 
-<div class="video">
-<iframe src="https://www.youtube-nocookie.com/embed/S0s935RKKB4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div className="video">
+<iframe src="https://www.youtube-nocookie.com/embed/S0s935RKKB4" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 </div>
 
 If you have any questions, comments, pieces of advice, whatever, feel free to get in touch [@jacobwgillespie](https://twitter.com/jacobwgillespie) on Twitter or at [jacobwgillespie@gmail.com](mailto:jacobwgillespie@gmail.com).

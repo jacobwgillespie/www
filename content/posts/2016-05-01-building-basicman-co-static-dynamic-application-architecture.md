@@ -4,13 +4,13 @@ date: '2016-05-01T00:00:00Z'
 description: Several months ago, I decided to build a website for men's skincare, beauty, and style products - it would provide a easy way for men to purchase a variety of essential products...
 ---
 
-![](./building-basicman-co-static-dynamic-application-architecture-1.jpg)
+<img src="/building-basicman-co-static-dynamic-application-architecture-1.jpg" width={1200} height={800} />
 
 **Update:** I [published an update to this article](/2016-10-05-replacing-react-with-rails) about some of the changes to Basic Man over the past five months.
 
 Several months ago, I decided to build a website for men's skincare, beauty, and style products - it would provide a easy way for men to purchase a variety of essential products (shampoo, conditioner, moisturizer, etc.), and would offer a single recommendation for each category. I wanted a one-stop place where you could acquire these essentials, knowing that they would enjoy the products purchased as they had been curated and tested by other men. Avoiding the "I'm in the supermarket, which of these 40 different products do I really need" situation, if you will.
 
-![](./building-basicman-co-static-dynamic-application-architecture-2.jpg)
+<img src="/building-basicman-co-static-dynamic-application-architecture-2.jpg" width={2000} height={1728} />
 
 [**BasicMan.co**](http://basicman.co/) launched today after many spare weekends of work, and while it's definitely far from perfect, I'm happy with the start.
 
