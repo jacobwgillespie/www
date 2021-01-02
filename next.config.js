@@ -1,19 +1,14 @@
-module.exports = {
+const withOffline = require('next-offline')
+
+const nextConfig = {
   async redirects() {
     return [
-      // Redirect old service worker
-      {
-        source: '/service-worker.js',
-        destination: '/sw.js',
-        permanent: true,
-      },
+      // Service worker
+      {source: '/sw.js', destination: '/service-worker.js', permanent: true},
+      {source: '/service-worker.js', destination: '/_next/static/service-worker.js'},
 
       // Renamed pages
-      {
-        source: '/hardware-and-software',
-        destination: '/uses',
-        permanent: true,
-      },
+      {source: '/hardware-and-software', destination: '/uses', permanent: true},
 
       // Redirects from old Medium site
       {
@@ -38,4 +33,20 @@ module.exports = {
       },
     ]
   },
+
+  workboxOpts: {
+    swDest: process.env.NEXT_EXPORT ? 'service-worker.js' : 'static/service-worker.js',
+    runtimeCaching: [
+      {
+        urlPattern: /^https?.*/,
+        handler: 'NetworkFirst',
+        options: {
+          cacheName: 'offlineCache',
+          expiration: {maxEntries: 200},
+        },
+      },
+    ],
+  },
 }
+
+module.exports = withOffline(nextConfig)
