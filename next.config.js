@@ -5,7 +5,7 @@ const nextConfig = {
     return [
       // Service worker
       {source: '/sw.js', destination: '/service-worker.js', permanent: true},
-      {source: '/service-worker.js', destination: '/_next/static/service-worker.js'},
+      {source: '/service-worker.js', destination: '/_next/static/service-worker.js', permanent: true},
 
       // Renamed pages
       {source: '/hardware-and-software', destination: '/uses', permanent: true},
