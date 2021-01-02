@@ -26,10 +26,7 @@ const BlogIndex = ({posts, page}) => {
   const hydratedContent = hydrate(page.content, {components: {Image: Image}})
   return (
     <Layout title="Jacob Gillespie">
-      <SEO
-        title="Jacob Gillespie"
-        // description={post.frontmatter.description || data.content.excerpt}
-      />
+      <SEO title="Jacob Gillespie" description={page.frontmatter.description} />
       <div>{hydratedContent}</div>
       <section>
         <h2>Posts</h2>
