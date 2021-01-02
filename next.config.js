@@ -5,7 +5,6 @@ const nextConfig = {
     return [
       // Service worker
       {source: '/sw.js', destination: '/service-worker.js', permanent: true},
-      {source: '/service-worker.js', destination: '/_next/static/service-worker.js', permanent: true},
 
       // Renamed pages
       {source: '/hardware-and-software', destination: '/uses', permanent: true},
@@ -32,6 +31,10 @@ const nextConfig = {
         permanent: true,
       },
     ]
+  },
+
+  async rewrites() {
+    return [{source: '/service-worker.js', destination: '/_next/static/service-worker.js'}]
   },
 
   workboxOpts: {
