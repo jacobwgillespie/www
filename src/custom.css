@@ -1,0 +1,55 @@
+.small-caps {
+  font-variant: small-caps;
+}
+
+.name a,
+.name a:visited {
+  color: inherit;
+  position: relative;
+  text-decoration: none;
+  text-shadow: 2px 2px white, 2px -2px white, -2px 2px white, -2px -2px white;
+}
+
+.name a::after {
+  background: #d73a49;
+  background: linear-gradient(
+    90deg,
+    #d73a49 0%,
+    #d73a49 20%,
+    #ffd33d 20%,
+    #ffd33d 40%,
+    #28a745 40%,
+    #28a745 60%,
+    #0366d6 60%,
+    #0366d6 80%,
+    #6f42c1 80%
+  );
+  bottom: 4px;
+  content: '';
+  height: 4px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+div.video {
+  margin-bottom: 1.5em;
+  overflow: hidden;
+  padding-top: 56.25%;
+  position: relative;
+}
+
+div.video iframe {
+  border: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+pre.shiki-unknown {
+  background-color: #24292e;
+  color: #d1d5da;
+}

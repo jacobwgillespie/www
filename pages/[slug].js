@@ -1,15 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
 import {getAllPages, getAllPosts, getPageBySlug, getPostBySlug} from '../src/posts'
-import {DateElement} from '../src/components/DateElement'
-import {Layout} from '../src/components/Layout'
 import {SEO} from '../src/components/SEO'
 import hydrate from 'next-mdx-remote/hydrate'
-import Image from 'next/image'
-
-const Title = styled.h1`
-  margin-top: 0;
-`
+import {Image} from '../src/components/Image'
 
 export const getStaticProps = async ({params}) => {
   try {
@@ -42,39 +35,19 @@ export async function getStaticPaths() {
 const Page = ({post}) => {
   const hydratedContent = hydrate(post.content, {components: {img: Image}})
   return (
-    <Layout>
+    <>
       <SEO title={post.frontmatter.title} description={post.frontmatter.description || post.excerpt} />
-      <article itemScope itemType="http://schema.org/BlogPosting">
+      <article itemScope itemType="http://schema.org/BlogPosting" className="max-w-2xl leading-7 prose prose-lg">
         {post.frontmatter.dateISO && (
           <div itemProp="datePublished">
-            <DateElement dateString={post.frontmatter.dateISO} />
+            <time dateTime={post.frontmatter.dateISO}>{post.frontmatter.date}</time>
           </div>
         )}
-        <Title itemProp="headline">{post.frontmatter.title}</Title>
+        <h1 itemProp="headline">{post.frontmatter.title}</h1>
         <div itemProp="articleBody">{hydratedContent}</div>
       </article>
-    </Layout>
+    </>
   )
 }
 
 export default Page
-
-// export const pageQuery = graphql`
-//   query PageBySlug($slug: String!) {
-//     site {
-//       siteMetadata {
-//         title
-//       }
-//     }
-//     markdownRemark(fields: {slug: {eq: $slug}}) {
-//       id
-//       excerpt(pruneLength: 160)
-//       html
-//       frontmatter {
-//         title
-//         date
-//         description
-//       }
-//     }
-//   }
-// `
