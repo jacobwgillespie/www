@@ -4,7 +4,7 @@ date: '2016-10-07T00:00:00Z'
 description: There is a lot of misinformation surrounding search engine optimization and how to perform well on the internet. Let's look at some SEO basics, some SEO myths, and general strategies...
 ---
 
-<img src="./seo-basics-for-photographers-1.jpg" title="Photo credit <a href='https://themoodyromantic.com'>The Moody Romantic</a>" width={2400} height={1602} />
+<img src="/seo-basics-for-photographers-1.jpg" title="Photo credit <a href='https://themoodyromantic.com'>The Moody Romantic</a>" width={2400} height={1602} />
 
 There is a lot of misinformation surrounding search engine optimization and how to perform well on the internet. Let's look at some SEO basics, some SEO myths, and general strategies for how to utilize your website for your business. I have written this post targeting photographers and photography websites, though most of the advice applies to any small business website.
 

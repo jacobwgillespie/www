@@ -4,7 +4,7 @@ date: '2016-10-05T00:00:00Z'
 description: Five months ago I launched Basic Man, a website providing a curated list of mens essentials...
 ---
 
-<p><img src="./replacing-react-with-rails-1.jpg" title="It's so simple!" width={1666} height={882} /></p>
+<p><img src="/replacing-react-with-rails-1.jpg" title="It's so simple!" width={1666} height={882} /></p>
 
 **tl;dr** - I replaced a ReactJS application with Rails + UJS. You will most likely identify this as a case where React was overkill, and I would agree. This article is an exploration of the decisions and events that lead to that realization, in the hopes that it might benefit others.
 

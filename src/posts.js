@@ -2,12 +2,10 @@ import matter from 'gray-matter'
 import fs from 'fs'
 import path from 'path'
 import {parseISO, format} from 'date-fns'
-import remark from 'remark'
-import html from 'remark-html'
 import * as shiki from 'shiki'
 import visit from 'unist-util-visit'
 import renderToString from 'next-mdx-remote/render-to-string'
-import Image from 'next/image'
+import {Image} from './components/Image'
 
 const pagesDirectory = path.join(process.cwd(), 'content', 'pages')
 const postsDirectory = path.join(process.cwd(), 'content', 'posts')
@@ -20,12 +18,6 @@ async function renderMarkdown(content) {
     components: {img: Image},
     mdxOptions: {remarkPlugins: [[highlight, {highlighter}]]},
   })
-
-  return await remark()
-    .use(highlight, {highlighter})
-    .use(html)
-    .process(content || '')
-    .toString()
 }
 
 function highlight({highlighter} = {}) {
