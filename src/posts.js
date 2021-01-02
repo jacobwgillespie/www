@@ -56,7 +56,7 @@ export async function getAllPages() {
 }
 
 export async function getPostBySlug(slug) {
-  const fullPath = path.join(postsDirectory, slug, 'index.md')
+  const fullPath = path.join(postsDirectory, `${slug}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const {data, content} = matter(fileContents)
   const date = format(parseISO(data.date), 'MMMM dd, yyyy')
@@ -65,7 +65,8 @@ export async function getPostBySlug(slug) {
 }
 
 export async function getAllPosts() {
-  const slugs = fs.readdirSync(postsDirectory)
+  const filenames = fs.readdirSync(postsDirectory)
+  const slugs = filenames.map((filename) => filename.replace(/\.md$/, ''))
   const posts = await Promise.all(slugs.map((slug) => getPostBySlug(slug)))
   return posts.sort((a, b) => {
     if (a.frontmatter.dateISO > b.frontmatter.dateISO) return -1
