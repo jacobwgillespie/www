@@ -1,8 +1,8 @@
+import {MDXRemote} from 'next-mdx-remote'
 import React from 'react'
-import {getAllPages, getAllPosts, getPageBySlug, getPostBySlug} from '../src/posts'
-import {SEO} from '../src/components/SEO'
-import hydrate from 'next-mdx-remote/hydrate'
 import {Image} from '../src/components/Image'
+import {SEO} from '../src/components/SEO'
+import {getAllPages, getAllPosts, getPageBySlug, getPostBySlug} from '../src/posts'
 
 export const getStaticProps = async ({params}) => {
   try {
@@ -13,6 +13,8 @@ export const getStaticProps = async ({params}) => {
     return {props: {post}}
   }
 }
+
+const components = {img: Image}
 
 export async function getStaticPaths() {
   const posts = await getAllPosts()
@@ -33,7 +35,6 @@ export async function getStaticPaths() {
 }
 
 const Page = ({post}) => {
-  const hydratedContent = hydrate(post.content, {components: {img: Image}})
   return (
     <>
       <SEO title={post.frontmatter.title} description={post.frontmatter.description || post.excerpt} />
@@ -44,7 +45,9 @@ const Page = ({post}) => {
           </div>
         )}
         <h1 itemProp="headline">{post.frontmatter.title}</h1>
-        <div itemProp="articleBody">{hydratedContent}</div>
+        <div itemProp="articleBody">
+          <MDXRemote {...post.content} components={components} />
+        </div>
       </article>
     </>
   )

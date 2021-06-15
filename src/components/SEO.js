@@ -1,6 +1,5 @@
-import React from 'react'
-
 import Head from 'next/head'
+import React from 'react'
 
 export const SEO = ({description, title}) => {
   return (
