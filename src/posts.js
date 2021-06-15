@@ -4,13 +4,13 @@ import matter from 'gray-matter'
 import {serialize} from 'next-mdx-remote/serialize'
 import path from 'path'
 import * as shiki from 'shiki'
-import {visit} from 'unist-util-visit'
+import visit from 'unist-util-visit'
 
 const pagesDirectory = path.join(process.cwd(), 'content', 'pages')
 const postsDirectory = path.join(process.cwd(), 'content', 'posts')
 
 async function renderMarkdown(content) {
-  const shikiTheme = shiki.loadTheme('./src/code-theme.json')
+  const shikiTheme = await shiki.loadTheme(path.resolve('./src/code-theme.json'))
   const highlighter = await shiki.getHighlighter({theme: shikiTheme})
 
   return await serialize(content, {

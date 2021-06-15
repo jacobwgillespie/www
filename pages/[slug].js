@@ -46,7 +46,7 @@ const Page = ({post}) => {
         )}
         <h1 itemProp="headline">{post.frontmatter.title}</h1>
         <div itemProp="articleBody">
-          <MDXRemote {...page.content} components={components} />
+          <MDXRemote {...post.content} components={components} />
         </div>
       </article>
     </>
