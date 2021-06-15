@@ -1,11 +1,10 @@
-import matter from 'gray-matter'
+import {format, parseISO} from 'date-fns'
 import fs from 'fs'
+import matter from 'gray-matter'
+import {serialize} from 'next-mdx-remote/serialize'
 import path from 'path'
-import {parseISO, format} from 'date-fns'
 import * as shiki from 'shiki'
-import visit from 'unist-util-visit'
-import renderToString from 'next-mdx-remote/render-to-string'
-import {Image} from './components/Image'
+import {visit} from 'unist-util-visit'
 
 const pagesDirectory = path.join(process.cwd(), 'content', 'pages')
 const postsDirectory = path.join(process.cwd(), 'content', 'posts')
@@ -14,8 +13,7 @@ async function renderMarkdown(content) {
   const shikiTheme = shiki.loadTheme('./src/code-theme.json')
   const highlighter = await shiki.getHighlighter({theme: shikiTheme})
 
-  return await renderToString(content, {
-    components: {img: Image},
+  return await serialize(content, {
     mdxOptions: {remarkPlugins: [[highlight, {highlighter}]]},
   })
 }
