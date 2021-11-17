@@ -1,5 +1,8 @@
 const withOffline = require('next-offline')
 
+/**
+ * @type {import('next').NextConfig}
+ */
 const nextConfig = {
   async redirects() {
     return [
@@ -35,6 +38,10 @@ const nextConfig = {
 
   async rewrites() {
     return [{source: '/service-worker.js', destination: '/_next/static/service-worker.js'}]
+  },
+
+  images: {
+    loader: 'custom',
   },
 
   workboxOpts: {
