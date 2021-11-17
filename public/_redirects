@@ -1,5 +1,4 @@
 /sw.js /service-worker.js 301
-/service-worker.js /static/service-worker.js 307
 /hardware-and-software /uses 301
 /from-rest-to-graphql-b4e95e94c26b /2015-10-09-from-rest-to-graphql 301
 /building-basicman-co-static-dynamic-application-architecture-55f9f8021eaf /2016-05-01-building-basicman-co-static-dynamic-application-architecture 301
