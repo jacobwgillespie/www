@@ -4,7 +4,7 @@ import matter from 'gray-matter'
 import {serialize} from 'next-mdx-remote/serialize'
 import path from 'path'
 import * as shiki from 'shiki'
-import visit from 'unist-util-visit'
+import {visit} from 'unist-util-visit'
 
 const pagesDirectory = path.join(process.cwd(), 'content', 'pages')
 const postsDirectory = path.join(process.cwd(), 'content', 'posts')

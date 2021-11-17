@@ -19,9 +19,9 @@
     "postcss": "^8.3.11",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "shiki": "^0.9.3",
+    "shiki": "^0.9.12",
     "tailwindcss": "^2.2.19",
-    "unist-util-visit": "2.x"
+    "unist-util-visit": "~4.1.0"
   },
   "devDependencies": {
     "depcheck": "^1.4.2",
