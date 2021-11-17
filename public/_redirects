@@ -1,0 +1,7 @@
+/sw.js /service-worker.js 301
+/service-worker.js /static/service-worker.js 307
+/hardware-and-software /uses 301
+/from-rest-to-graphql-b4e95e94c26b /2015-10-09-from-rest-to-graphql 301
+/building-basicman-co-static-dynamic-application-architecture-55f9f8021eaf /2016-05-01-building-basicman-co-static-dynamic-application-architecture 301
+/replacing-react-with-rails-66e25cd23777 /2016-10-05-replacing-react-with-rails 301
+/seo-basics-for-photographers-868fc007f91 /2016-10-07-seo-basics-for-photographers 301
