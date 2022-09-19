@@ -7,6 +7,6 @@ Jacob is currently employed at [Era Software](http://era.co) as a staff platform
 
 Jacob's interests include application infrastructure and deployment, full-stack web development, and compiled languages like Go and Rust.
 
-Jacob maintains the [Styled Icons](https://github.com/styled-icons/styled-icons) open-source project and is currently developing next-generation tooling for managing infrastructure as code.
+Jacob maintains the [Styled Icons](https://github.com/styled-icons/styled-icons) open-source project and is currently developing [Depot](https://depot.dev), a next-generation build service.
 
 [GitHub](https://github.com/jacobwgillespie) · [Twitter](https://twitter.com/jacobwgillespie) · [Contact](mailto:jacobwgillespie@gmail.com)
