@@ -1,4 +1,5 @@
 ---
+layout: ../layouts/PostLayout.astro
 title: Hardware and Software
 ---
 

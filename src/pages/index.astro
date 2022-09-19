@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro'
+import {Content, frontmatter} from '../content/homepage.md'
+import {hydratePosts} from '../utils/posts'
+
+const posts = hydratePosts(await Astro.glob('../../posts/*.md'))
+---
+
+<Layout title={frontmatter.title} description={frontmatter.description}>
+  <div class="max-w-2xl leading-7 prose prose-lg">
+    <Content />
+  </div>
+  <section class="max-w-2xl pt-8 mt-8 space-y-2 border-t border-gray-200">
+    <h2 class="text-lg font-semibold tracking-tight">Posts</h2>
+    {
+      posts.map((post) => {
+        const title = post.frontmatter.title || post.slug
+        return (
+          <article itemscope itemtype="http://schema.org/BlogPosting" class="flex items-baseline justify-between">
+            <a href={`/${post.slug}`} itemprop="headline" class="text-lg text-blue-600">
+              {title}
+            </a>
+            <time
+              itemprop="datePublished"
+              class="whitespace-nowrap text-xs"
+              datetime={post.frontmatter.dateISO}
+              title={post.frontmatter.dateISO}
+            >
+              {post.frontmatter.friendlyDate}
+            </time>
+          </article>
+        )
+      })
+    }
+  </section>
+</Layout>

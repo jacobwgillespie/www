@@ -1,0 +1,26 @@
+---
+import type {Frontmatter} from '../utils/posts'
+import Layout from './Layout.astro'
+
+export interface Props {
+  frontmatter: Frontmatter
+}
+
+const {frontmatter} = Astro.props
+---
+
+<Layout title={frontmatter.title} description={frontmatter.description}>
+  <article itemscope itemtype="http://schema.org/BlogPosting" class="max-w-2xl leading-7 prose prose-lg">
+    {
+      frontmatter.dateISO && (
+        <div itemprop="datePublished">
+          <time datetime={frontmatter.dateISO}>{frontmatter.friendlyDate}</time>
+        </div>
+      )
+    }
+    <h1 itemprop="headline">{frontmatter.title}</h1>
+    <div itemprop="articleBody">
+      <slot />
+    </div>
+  </article>
+</Layout>

@@ -1,0 +1,18 @@
+---
+import PostLayout from '../layouts/PostLayout.astro'
+import {hydratePost, hydratePosts} from '../utils/posts'
+
+export async function getStaticPaths() {
+  const posts = hydratePosts(await Astro.glob('../../posts/*.md'))
+  return posts.map((post) => ({
+    params: {slug: post.slug},
+  }))
+}
+
+const {slug} = Astro.params
+const {Content, frontmatter} = hydratePost(await import(`../../posts/${slug}.md`))
+---
+
+<PostLayout frontmatter={frontmatter}>
+  <Content />
+</PostLayout>
