@@ -7,4 +7,4 @@ Jacob is the co-founder and CTO of [Depot](https://depot.dev). He was granted a 
 
 Jacob's interests include developer tools, application infrastructure and deployment, full-stack web development, and compiled languages like Rust. Jacob maintains the [Styled Icons](https://github.com/styled-icons/styled-icons) open-source project.
 
-[GitHub](https://github.com/jacobwgillespie) · [Twitter](https://twitter.com/jacobwgillespie) · [Contact](mailto:jacobwgillespie@gmail.com)
+[GitHub](https://github.com/jacobwgillespie) · [Twitter](https://twitter.com/jacobwgillespie) · <a rel="me" href="https://hachyderm.io/@jacobwgillespie">Mastodon</a> · [Contact](mailto:jacobwgillespie@gmail.com)
