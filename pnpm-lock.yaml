@@ -896,7 +896,7 @@ packages:
       vfile: 5.3.5
       vite: 3.1.0
       yargs-parser: 21.1.1
-      zod: 3.19.1
+      zod: 3.22.4
     transitivePeerDependencies:
       - less
       - sass
@@ -3876,8 +3876,8 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
-  /zod@3.19.1:
-    resolution: {integrity: sha512-LYjZsEDhCdYET9ikFu6dVPGp2YH9DegXjdJToSzD9rO6fy4qiRYFoyEYwps88OseJlPyl2NOe2iJuhEhL7IpEA==}
+  /zod@3.22.4:
+    resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
     dev: false
 
   /zwitch@2.0.2:
